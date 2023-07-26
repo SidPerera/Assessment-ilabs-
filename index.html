@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>FAQ-Manager - ilabs</title>
+</head>
+<body>
+    <nav>
+        
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+    <main>
+        <div class="container">
+
+            <div class="outerbox">
+                <label id="header">FAQ-Manager - ilabs</label>
+                <button type= "button" id="addQuestionBtn">Add New Question</button>
+
+                <div class="popup">
+                    <div class="popup-content">
+                        <form action="">
+                            <label for="question">Question : </label>
+                            <input type="text" id="query" name="lname">
+
+                            <label for="category">Category : </label>
+                            <input type="text" id="query" name="lname">
+
+                            <button type="submit" id="newSubmitBtn">Post</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="searchBox">
+                <input type="search" id="textArea" placeholder="Search....">
+                <button type ="submit" id="searchBtn">Search</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
