@@ -55,6 +55,7 @@ nav li a{
 }
 
 #header{
+    /* border: 2px solid red; */
     font-size: 20px;
 }
 
@@ -63,48 +64,89 @@ nav li a{
     border-radius: 5px;  
     background-color: #c5cae9;
     padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.popup{
-    background-color: rgba(0, 0, 0, 0.6);
+/*
+Modal styles 
+*/
+
+.modal {
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal form {
+    width: 400px;
     position: absolute;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content{
-    height: 250px;
-    width: 500px;
-    background:  #fff ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form{
-    display:inline-block;
-}
-
-label{
-    border: 2px red solid;
-    margin-left: 30px;
-    margin-right: 80px;
-}
-
-input{
+.modal label,
+.modal input{
+    /* border: 2px solid red; */
+    display: block;
     margin-bottom: 10px;
-    border: 2px red solid;
 }
 
-button{
-    display:list-item;
-    margin-top: 40px;
-    margin-left: 50px;
+.modal label{
+    font-weight: bold;
 }
+
+.modal input{
+    width: 350px;
+}
+
+.modal button{
+    margin-left: 50px;
+    margin-top: 20px;
+    /* display:inline-flexbox; */
+
+}
+#newSubmitBtn{
+    background-color: #3f51b5;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+    /*margin-top: -30px;
+    margin-left: 220px; */
+}
+
+#cancelBtn{
+    background-color: #3f51b5;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+    /*margin-top: 30px;
+    margin-left: 110px; */
+}
+
+/*
+end of modal styles 
+*/
+
+
+/* 
+Search box styles
+*/
 
 .searchBox{
     background-color: white;
@@ -112,7 +154,7 @@ button{
     border-radius: 5px;
     display:flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 10px;
 }
 
@@ -131,5 +173,105 @@ button{
     width: 25%;
     margin-left: 10px  ;
     padding: 10px 80px 10px 80px;
-
 }
+
+/* 
+end of Search box styles
+*/
+
+
+/* 
+Question Table styles
+*/
+
+#questionTable{
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+#questionTable th,
+#questionTable td{
+    border-bottom: 3px solid #dddddd;
+    padding: 10px;
+    /* border: none; */
+}
+
+#questionTable th{
+    text-align: center;
+    cursor: pointer;
+}
+
+#questionTable th.sortable::after {
+    /* content: "\f0dc"; */
+    /* font-family: "Font Awesome 5 Free"; */
+    padding-left: 5px;
+}
+
+#questionTable th.sortable.sorted-asc::after {
+    /* content: "\f0de"; */
+    /* font-family: "Font Awesome 5 Free"; */
+    padding-left: 5px;
+    /* transform: rotate(180deg); */
+}
+
+#questionTable td{
+    text-align: center;
+}
+
+/* action button styles */
+td button{
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Delete button styles */
+td button.deleteBtn {
+    background-color: #dc3545;
+}
+
+/* deactivate button styles */
+td button.deactivateBtn {
+    background-color: #000000;
+}
+
+/* view button styles */
+td button.viewBtn {
+    background-color: #0043fb;
+  }
+  
+/* 
+End of question Table styles
+*/
+
+
+
+/*
+Pagination styles
+*/
+
+.pagination{
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+}
+
+.pagination button{
+    padding: 5px 15px;
+    margin: 0px 5px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+/*
+End of pagination styles
+*/
