@@ -11,8 +11,8 @@ body{
 /* --Navbar style-- */
 
 nav{
-    background-color: black;
-    color: white;
+    background-color: #3f51b5;
+    /* color: white; */
     padding: 20px;
 }
 
@@ -31,7 +31,7 @@ nav li{
 
 nav li a{
     text-decoration: none;
-    color: white;
+    color: #fbaf1a;
     font-weight: bold;
     font-size: 16px;
 }
@@ -42,7 +42,9 @@ nav li a{
     background-color: #e8eaf6;
     /* border: 2px solid red; */
     max-width:100%;
-    margin: 80px;
+    margin: 30px 100px 45px 100px;
+    /* margin-left: 60px;
+    margin: 80px; */
     padding: 10px;
 }
 
@@ -60,12 +62,19 @@ nav li a{
 }
 
 #addQuestionBtn{
+    font-weight: bold;
     border: 0; 
     border-radius: 5px;  
     background-color: #c5cae9;
-    padding: 10px;
+    padding: 10px 20px 10px 20px;
     text-decoration: none;
     cursor: pointer;
+}
+
+#addQuestionBtn:hover {
+    color: white;
+    background-color: #7f8cdc;
+    transition: all ease 0.4s; 
 }
 
 /*
@@ -96,7 +105,6 @@ Modal styles
 
 .modal label,
 .modal input{
-    /* border: 2px solid red; */
     display: block;
     margin-bottom: 10px;
 }
@@ -112,7 +120,7 @@ Modal styles
 .modal button{
     margin-left: 50px;
     margin-top: 20px;
-    /* display:inline-flexbox; */
+
 
 }
 #newSubmitBtn{
@@ -123,8 +131,7 @@ Modal styles
     padding: 5px;
     width: 100px;
     cursor: pointer;
-    /*margin-top: -30px;
-    margin-left: 220px; */
+
 }
 
 #cancelBtn{
@@ -135,8 +142,6 @@ Modal styles
     padding: 5px;
     width: 100px;
     cursor: pointer;
-    /*margin-top: 30px;
-    margin-left: 110px; */
 }
 
 /*
@@ -173,8 +178,14 @@ Search box styles
     width: 25%;
     margin-left: 10px  ;
     padding: 10px 80px 10px 80px;
+    font-weight: bold;
 }
 
+#searchBtn:hover {
+    color: rgb(0, 0, 0);
+    background-color: #7f8cdc;
+    transition: all ease 0.5s;
+}
 /* 
 end of Search box styles
 */
@@ -272,6 +283,98 @@ Pagination styles
     cursor: pointer;
 }
   
+/* next button animate */
+#nextPage span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+#nextPage span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+#nextPage:hover span {
+    padding-right: 25px;
+}
+  
+#nextPage:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* previous button animate */
+
+#prevPage span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+#prevPage span:after {
+    content: '\00AB';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -80px;
+    transition: 0.5s;
+}
+  
+#prevPage:hover span {
+    padding-left: 25px;
+}
+  
+#prevPage:hover span:after {
+    opacity: 1;
+    left: 0;
+}
+
+
 /*
 End of pagination styles
 */
+
+
+/* --footer style-- */
+
+footer{
+    background-color: #3f51b5;
+    color: #fbaf1a;
+    padding: 0px 10px;
+    /* padding-bottom: 0px; */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-align{
+    width: 50%;
+    text-align: left;
+}
+
+.right-align{
+    width: 50%;
+
+}
+
+.right-align ul{
+    display: flex;
+    list-style: none;
+    font-size: 16px;
+    justify-content: right;
+}
+
+.right-align ul li a{
+    text-decoration: none;
+    color: #fbaf1a;
+}
