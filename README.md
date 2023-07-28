@@ -4,7 +4,7 @@
    
   Clone or download the source code from the GitHub repository.
 
-3. Navigate to the Application Directory:
+2. Navigate to the Application Directory:
    
   Extract the downloaded code to a directory.
 
