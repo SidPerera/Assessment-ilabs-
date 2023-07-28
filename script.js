@@ -15,12 +15,11 @@ function loadQuestions(pageNumber, pageSize, searchText) {
           <td>${startIndex + index + 1}</td>
           <td class="${deactivated ? 'deactivated' : ''}">${question}</td>
           <td>${category}</td>
-          <td>${deactivated ? 'Draft' : status}</td>
+          <td>${deactivated ? 'Draft' : 'Published'}</td>
           <td>
             <button class="deleteBtn" data-index="${startIndex + index}">Delete</button>
-            <button class="deactivateBtn" data-index="${startIndex + index}">
-              ${deactivated ? 'Activate' : 'Deactivate'}
-            </button>
+            <button class="deactivateBtn" data-index="${startIndex + index}">${deactivated ? 'Activate' : 'Deactivate'}</button>
+            <button class="viewBtn">View</button>
           </td>
         </tr>
       `;
@@ -28,7 +27,6 @@ function loadQuestions(pageNumber, pageSize, searchText) {
     $('#questionTable tbody').html(tableRows);
 }
   
-
 // Function to add a new question to localStorage
 function addQuestion(question, category, status) {
     const data = JSON.parse(localStorage.getItem('questionData')) || [];
@@ -48,11 +46,16 @@ function deactivateQuestion(index) {
     const data = JSON.parse(localStorage.getItem('questionData')) || [];
     data[index].deactivated = !data[index].deactivated;
     if (data[index].deactivated) {
-      data[index].status = 'Draft'; // Set the status to 'Draft' when the question is deactivated
+      data[index].status = 'Draft'; // Setting the status to 'Draft' when the question is deactivated
     }
     localStorage.setItem('questionData', JSON.stringify(data));
 }
 
+$('#rowsPerPage').on('change', function () {
+    pageSize = parseInt($(this).val(), 10);
+    currentPage = 1; // Reset to the first page when changing the page size
+    loadQuestions(currentPage, pageSize);
+  });
 
 const pageSize = 5; // Number of questions per page
 let currentPage = 1;
@@ -60,26 +63,28 @@ let currentPage = 1;
 // Load questions on page load
 loadQuestions(currentPage, pageSize);
 
+//showing the modal from button click
 $('#addQuestionBtn').on('click', function () {
     $('#addQueModal').show();
 });
 
+// closing the modal from button click
 $('#cancelBtn').on('click', function() {
     $('#addQueModal').hide();
 });
 
+//
 $('#addQueModal form').on('submit', function (e) {
     e.preventDefault();
     const question = $('#question').val().trim();
     const category = $('#category').val().trim();
-    const status = $('#status').val(); // Get the selected status
+    const status = "Published"; // Get the selected status
     
     if (question !== '' && category !== '') {
         addQuestion(question, category, status); // Pass the status to addQuestion function
         loadQuestions(currentPage, pageSize); // Reload the current page after adding a new question
         $('#question').val('');
         $('#category').val('');
-        $('#status').val('Published'); // Reset the status dropdown to 'Published'
         $('#addQueModal').hide();
     }
 });
@@ -111,22 +116,12 @@ $('#nextPage').on('click', function () {
 let sortColumn = '';
 let sortOrder = 1; // 1 for ascending, -1 for descending
 
-function sortQuestions(column) {
+function sortQuestions() {   
     const data = JSON.parse(localStorage.getItem('questionData')) || [];
-
     data.sort((a, b) => {
-      const valA = a[column].toLowerCase();
-      const valB = b[column].toLowerCase();
-
-      if (column === 'question' || column === 'category') {
-        return valA.localeCompare(valB) * sortOrder;
-      } else if (column === 'status') {
-        // Custom sorting logic for status: Published first, then Draft
-        return (valA === 'published' ? -1 : 1) * sortOrder;
-      } else {
-        // If sorting by index, maintain numeric sorting
-        return (a - b) * sortOrder;
-      }
+        const questionA = a.question.toLowerCase();
+        const questionB = b.question.toLowerCase();
+        return questionA.localeCompare(questionB) * sortOrder;
     });
 
     localStorage.setItem('questionData', JSON.stringify(data));
@@ -135,17 +130,13 @@ function sortQuestions(column) {
 
 $(document).on('click', 'th.sortable', function () {
     const column = $(this).text().trim();
-    if (column === sortColumn) {
-      sortOrder *= -1; // Toggle the sorting order for the same column
-    } else {
-      sortColumn = column;
-      sortOrder = 1; // Reset sorting order for a new column
+    if (column === 'Question') {
+      sortOrder *= -1; // Toggle the sorting order for the "Question" column
+      sortQuestions();
+      // Update the Font Awesome icon based on the sorting direction
+      $(this).toggleClass('sorted-asc', sortOrder === 1);
+      $(this).toggleClass('sorted-desc', sortOrder === -1);
     }
-    sortQuestions(column);
-    
-    // Update the sortable class and Font Awesome icons based on the sorting direction
-    $('th.sortable').removeClass('sorted-asc sorted-desc');
-    $(this).addClass(sortOrder === 1 ? 'sorted-asc' : 'sorted-desc');
 });
 
 // Delete question functionality
@@ -161,6 +152,3 @@ $(document).on('click', '.deactivateBtn', function () {
     deactivateQuestion(index);
     loadQuestions(currentPage, pageSize); // Reload the current page after deactivating a question
 });
-
-
-
