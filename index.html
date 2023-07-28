@@ -17,7 +17,6 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>
-
     <main>
         <div class="container">
             <div class="outerbox">
@@ -30,22 +29,18 @@
                     <form>
                         <label for="question" id="tag">Question:</label>
                         <input type="text" id="question" name="question">
-
                         <label for="category" id="tag">Category:</label>
                         <input type="text" id="category" name="category">
-
                         <button type="button" id="cancelBtn">Back</button>
                         <button type="submit" id="newSubmitBtn">Post</button>
                     </form>
                 </div>
             </div>
-
             <!-- Search bar -->
             <div class="searchBox">
                 <input type="search" id="textArea" placeholder="Search....">
                 <button  id="searchBtn">Search</button>
             </div> 
-            
             <div>
                 <!-- question table -->
                 <table id="questionTable">
@@ -59,42 +54,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- added questions will display here -->
+                        <!-- added questions with categories will display here -->
                     </tbody>
                 </table>
             </div>
-            
             <!-- pagination -->
             <div class="pagination">
+                <div class="rows-per-page">
+                    <label for="rowsPerPage">Rows per Page:</label>
+                    <select id="rowsPerPage">
+                      <option value="3" selected>3</option>
+                      <option value="5">5</option>
+                      <option value="7">7</option>
+                    </select>
+                  </div>
                 <button id="prevPage"><span>Previous</span></button>
                 <button id="nextPage"><span>Next</span></button>
             </div>
         </div>
-
         <footer>
-            <!-- <ul class="footer-list">
-                <li class="center-align">copyright @ iLabs. All Rights Reserved</li>
-                <li>@Privacy Policy |</li>
-                <li>Terms of Service |</li>
-                <li>Help Center</li>
-            </ul> -->
             <div class="left-align">
                 <p>copyright @ iLabs, All Rights Reserved</p>
             </div>
-
             <div class="right-align">
                 <ul>
                     <li><a href="">@Privacy Policy |&nbsp</a></li>
                     <li><a href="">Terms of Service |&nbsp</a></li>
                     <li><a href="">Help Center</a></li>
                 </ul>
-                <!-- <a href="">@Privacy Policy |</a>
-                <a href="">Terms of Service |</a>
-                <a href="">Help Center</a> -->
             </div>
         </footer>
-
-
     </main>
 </body>
 </html>
