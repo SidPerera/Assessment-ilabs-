@@ -52,12 +52,10 @@ nav li a{
     margin-top: 10px;
     display:flex;
     justify-content:space-between;
-    /* border: 2px solid green; */
     padding: 10px;
 }
 
 #header{
-    /* border: 2px solid red; */
     font-size: 20px;
 }
 
@@ -80,7 +78,6 @@ nav li a{
 /*
 Modal styles 
 */
-
 .modal {
     display:none;
     position: fixed;
@@ -120,9 +117,8 @@ Modal styles
 .modal button{
     margin-left: 50px;
     margin-top: 20px;
-
-
 }
+
 #newSubmitBtn{
     background-color: #3f51b5;
     color: white;
@@ -131,7 +127,6 @@ Modal styles
     padding: 5px;
     width: 100px;
     cursor: pointer;
-
 }
 
 #cancelBtn{
@@ -152,10 +147,8 @@ end of modal styles
 /* 
 Search box styles
 */
-
 .searchBox{
     background-color: white;
-    /* border: 2px solid rgb(64, 0, 255); */
     border-radius: 5px;
     display:flex;
     justify-content: space-between;
@@ -194,7 +187,6 @@ end of Search box styles
 /* 
 Question Table styles
 */
-
 #questionTable{
     background-color: white;
     width: 100%;
@@ -206,7 +198,6 @@ Question Table styles
 #questionTable td{
     border-bottom: 3px solid #dddddd;
     padding: 10px;
-    /* border: none; */
 }
 
 #questionTable th{
@@ -215,16 +206,11 @@ Question Table styles
 }
 
 #questionTable th.sortable::after {
-    /* content: "\f0dc"; */
-    /* font-family: "Font Awesome 5 Free"; */
     padding-left: 5px;
 }
 
 #questionTable th.sortable.sorted-asc::after {
-    /* content: "\f0de"; */
-    /* font-family: "Font Awesome 5 Free"; */
     padding-left: 5px;
-    /* transform: rotate(180deg); */
 }
 
 #questionTable td{
@@ -256,17 +242,14 @@ td button.deactivateBtn {
 td button.viewBtn {
     background-color: #0043fb;
   }
-  
 /* 
 End of question Table styles
 */
 
 
-
 /*
 Pagination styles
 */
-
 .pagination{
     display: flex;
     justify-content: end;
@@ -310,7 +293,6 @@ Pagination styles
 }
 
 /* previous button animate */
-
 #prevPage span {
     cursor: pointer;
     display: inline-block;
@@ -335,20 +317,18 @@ Pagination styles
     opacity: 1;
     left: 0;
 }
-
-
 /*
 End of pagination styles
 */
 
 
-/* --footer style-- */
-
+/* 
+footer style
+*/
 footer{
     background-color: #3f51b5;
     color: #fbaf1a;
     padding: 0px 10px;
-    /* padding-bottom: 0px; */
     position: fixed;
     left: 0;
     bottom: 0;
@@ -364,7 +344,6 @@ footer{
 
 .right-align{
     width: 50%;
-
 }
 
 .right-align ul{
